@@ -1,0 +1,13 @@
+{
+  "presets": ["env"],
+  "plugins": [
+    "transform-function-bind",
+    ["module-resolver", {
+      "root": ["."],
+      "alias": {
+        "@app": "./"
+      }
+    }],
+    "transform-object-rest-spread"
+  ]
+}

@@ -1,0 +1,7 @@
+@mixin focusButtonWithArrow() {
+  &:hover,  &:focus{
+    .arrowIcon {
+      background-color: $green;
+    }
+  }
+}

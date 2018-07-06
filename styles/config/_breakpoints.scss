@@ -1,0 +1,16 @@
+@import './../../node_modules/breakpoint-sass/stylesheets/_breakpoint.scss';
+
+$lg: 1200px;
+$md-up: 992px;
+$md: 992px 1199px;
+$md-less: max-width 1199px;
+$sm-up: 800px;
+$sm: 769px 991px;
+$sm-less: max-width 991px;
+$xs-up: 769px;
+$xs-only: 480px 768px;
+$xs: max-width 768px;
+$xxs: max-width 445px;
+$xxs-iphone: max-width 320px;
+$xxs-up: 446px;
+$xxs-less: max-width 445px;

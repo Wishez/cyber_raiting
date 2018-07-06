@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width,initial-scale=1">
+
+	<title>Raitin API для портала 24cyber | Филипп Журавлёв</title>
+	<link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
+</head>
+
+<body>
+
+	<div id="userPopup" data-user-id="" data-user-info='{
+	    "rating": 0,
+	    "userId":  "userPopup",
+	    "selfUserRank": ""
+	  }' role="presentation" class="popupBackground">
+		<div id="userDataModalDescription" hidden>Окно с данными пользователя</div>
+	
+		<section role="dialog" aria-labelledby="userDataModalDescription" aria-modal="true" class="litter parent parent_wrap parent_row background-color_white border_bend margin_centered font-size_14 margin-top_large margin-bottom_large shadow_bigSpread">
+			<h2 class="margin-top_zero litter__title width_fill margin-bottom_base font-size_24 parent parent_centered">
+				Просмотр данных участника
+			</h2>
+	
+			<div class="userPopupAvatar parent parent_centered parent_column margin_centered-xs">
+				<picture class="userAvatar userAvatar_userPopup userAvatar_popupBorder userAvatar_big after after_absolute order_first position_relative border_round background-color_white order_first">
+					<source id="userPopupAvatar" srcset="assets/man.jpg" media="screen" />
+					<img class="img-responsive img-circle img-responsive width_fill height_fill" src='assets/man.jpg' />
+	
+					<svg role="img" aria-hidden="true" class="userAvatar__border position_absolute" x="0px" y="0px" viewBox="0 0 100 100" enable-background="new 0 0 100 100"
+					 xml:space="preserve">
+						<linearGradient id="borderGradient_userPopup" x1="0%" y1="0%" x2="100%" y2="100%">
+							<stop class="raitingGradientColor_userPopup" offset="100%" stop-color="#C2C8CE" />
+							<stop offset="100%" stop-color="#C2C8CE" />
+						</linearGradient>
+	
+						<circle cx="50" cy="50" r="40" fill="none" stroke-width="3" stroke="#E9E9E9" />
+	
+						<circle class="raitingBorder raitingBorder_black" />
+	
+						<circle class="raitingBorder raitingBorder_userPopup raitingBorder_main" stroke="url(#borderGradient_userPopup)" />
+					</svg>
+				</picture>
+	
+				<h3 class="userRank margin-top_increased font-weight_semi font-size_18">
+					<span id="userPopupLevel" class="userRank_knight rankName_userPopup font-weight_bold">85</span>&nbsp;
+					<span class="text-uppercase">level</span>
+				</h3>
+	
+				<div id="userPopupEvaluationBlock" data-total-evaluated-score="0" class="width_fill parent parent_centered">
+						<button aria-label="Увеличить рейтинг" class="userEvaluationButton actionButton actionButton_yellow  margin-right_small tapButton_shadow-hard"
+						 data-evaluated-user-id="1" data-is-allowed-evaluate="true" data-action="increase">
+							<i class="fa fa-plus" aria-hidden="true"></i>
+						</button>
+	
+						<button aria-label="Увеличить уменьшить рейтинг" class="userEvaluationButton actionButton actionButton_red  margin-left_small tapButton_shadow-hard"
+						 data-evaluated-user-id="1" data-is-allowed-evaluate="true" data-action="decrease">
+							<i class="fa fa-minus" aria-hidden="true"></i>
+						</button>
+				</div>
+			</div>
+	
+			<div class="popupUserInfo parent parent_row parent_wrap margin-top_small margin_centered-xs">
+				<dl class="userPanelMeta userPanelMeta_userPopup parent parent_column parent_wrap font-size_14">
+					<dt class="userPanelMeta__label">Никнейм</dt>
+					<dd id="userPopupUsername" class="font-weight_bold userPanelMeta__value margin-bottom_base-quarter">shiningfinger</dd>
+	
+					<dt class="userPanelMeta__label">Рейтинг</dt>
+					<dd class="font-weight_bold userPanelMeta__value margin-bottom_base-quarter">
+						<span id="userPopupRating" class="userRaiting_userPopup">1555</span>/2000
+					</dd>
+	
+					<dt class="userPanelMeta__label">На сайте с</dt>
+					<dd id="userPopupRegistrationDate" class="font-weight_bold userPanelMeta__value">01.01.2018</dd>
+				</dl>
+			</div>
+	
+			<div class="userPopupButtons parent parent_column margin-left_auto margin_centered-xs margin-top_base-xs">
+				<button data-action="write" class="userPopupButton submitButton userPopupButtons__styledButton submitButton_green submitButton_offsets margin_centered submitButton_shadow-light spacing_four">
+					Написать сообщение
+				</button>
+	
+				<button data-action="findMessages" class="unstyledButton parent_row parent userPopupButton userPopupButton_bottomOffset parent_v-centered padding_zero">
+					<span class="grow userPopupButton__label text-left">
+						Найти все сообщения на форуме
+					</span>
+	
+					<svg class="order_first userPopupButton__icon" role="img" aria-hidden="true" focusable="false" width="1em" height="1em" viewBox="0 0 10 10">
+						<use xlink:href="#searchIcon"></use>
+					</svg>
+				</button>
+	
+				<button data-action="findThreads" class="unstyledButton parent_row parent userPopupButton parent_v-centered padding_zero">
+					<span class="grow userPopupButton__label text-left">Найти все темы на форуме</span>
+	
+					<svg class="order_first userPopupButton__icon" role="img" aria-hidden="true" focusable="false" width="1em" height="1em" viewBox="0 0 10 10">
+						<use xlink:href="#searchIcon"></use>
+					</svg>
+				</button>
+	
+			</div>
+	
+			<button id="closeUserPopupButton" aria-label="Закрыть модальное окно с информацией о пользователе" class="closeButton unstyledButton position_absolute userPopup__closeButton parent parent_centered visible-xs">
+				<i class="fa fa-close fa-2x" aria-hidden="true"></i>
+			</button>
+		</section>
+	</div>
+	
+	<div id="currentUserInfo" data-current-user-info='{
+	      "score": 42,
+	      "userId": 42
+	    }'>
+	</div>
+
+	<script async src="src/app.js"></script>
+</body>
+</html>

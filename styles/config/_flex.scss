@@ -1,0 +1,122 @@
+.parent {
+    display: flex;
+
+    &_v {
+        &-centered {
+            align-items: center;
+        }
+
+        &-end {
+            align-items: flex-end;
+        }
+    }
+
+    &_inline {
+        display: inline-flex;
+    }
+
+    &_h {
+        &-around {
+            justify-content: space-around;
+
+            &-xs {
+              @include breakpoint($xs) {
+                justify-content: space-around;
+              }
+            }
+        }
+
+        &-centered {
+            justify-content: center;
+
+            &-xs {
+
+              @include breakpoint($xs) {
+                justify-content: center;
+              }
+            }
+        }
+
+        &-end {
+            justify-content: flex-end;
+        }
+
+        &-between {
+            justify-content: space-between;
+        }
+    }
+
+    &_centered {
+        align-items: center;
+        justify-content: center;
+    }
+
+    &_row {
+        flex-direction: row;
+    }
+
+    &_column {
+        flex-direction: column;
+    }
+
+    &_wrap {
+        flex-wrap: wrap;
+    }
+
+    &_grow-childs > * {
+        flex-grow: 1;
+    }
+}
+
+.order {
+  &_first {
+      order: -1;
+
+      &-md {
+
+        @include breakpoint($md-less) {
+          order: -1;
+        }
+      }
+
+      &-sm {
+
+        @include breakpoint($sm-less) {
+          order: -1;
+        }
+      }
+
+      &-xs {
+
+        @include breakpoint($xs) {
+          order: -1;
+        }
+      }
+
+      &-xxs {
+
+        @include breakpoint($xxs) {
+          order: -1;
+        }
+      }
+  }
+
+  &_last {
+      order: 10;
+
+      &-xs {
+
+        @include breakpoint($xs) {
+          order: 10;
+        }
+      }
+
+      &-xxs {
+
+        @include breakpoint($xxs) {
+          order: 10;
+        }
+      }
+  }
+
+}

@@ -1,0 +1,198 @@
+$i: !important;
+
+.margin {
+    &_zero {
+        margin: 0;
+    }
+
+    &-bottom {
+        &_zero {
+            margin-bottom: 0;
+        }
+
+        &_quarter {
+            margin-bottom: 0.25em;
+        }
+
+        &_small {
+            margin-bottom: 0.5em;
+        }
+
+        &_base {
+            margin-bottom: 1em;
+
+            &-quarter {
+                margin-bottom: 1.25em;
+            }
+
+            &-xs {
+                @include breakpoint($xs) {
+                    margin-bottom: 1em;
+                }
+            }
+        }
+    }
+
+    &_centered {
+        margin-left: auto;
+        margin-right: auto;
+
+        &-md {
+            @include breakpoint($md-less) {
+                margin-left: auto;
+                margin-right: auto;
+            }
+        }
+
+        &-xs {
+            @include breakpoint($xs) {
+                margin-left: auto;
+                margin-right: auto;
+            }
+        }
+    }
+
+    &-top {
+        &_auto {
+            margin-top: auto;
+        }
+
+        &_extra {
+            margin-top: 4em;
+        }
+        &_quarter {
+            margin-top: 0.25em;
+        }
+        &_zero-force {
+            margin-top: 0 $i;
+        }
+
+        &_increased {
+            margin-top: 1.5em;
+        }
+
+        &_base {
+            margin-top: 1em;
+
+            &-xs {
+                @include breakpoint($xs) {
+                    margin-top: 1em;
+                }
+            }
+
+            &-xxs {
+                @include breakpoint($xxs) {
+                    margin-top: 1em;
+                }
+            }
+        }
+
+        &_zero {
+            margin-top: 0;
+
+            &-md {
+                @include breakpoint($md-less) {
+                    margin-top: 0;
+                }
+            }
+        }
+
+        &_small {
+            margin-top: 0.5em;
+
+            &-xs {
+                @include breakpoint($xs) {
+                    margin-top: 0.5em;
+                }
+            }
+
+            &-xxs {
+                @include breakpoint($xxs) {
+                    margin-top: 0.5em;
+                }
+            }
+        }
+
+        &_large {
+            margin-top: 2em;
+
+            &-xs {
+                @include breakpoint($xs) {
+                    margin-top: 2em;
+                }
+            }
+        }
+    }
+
+    &-left {
+        &_zero {
+            &-xs {
+                @include breakpoint($xs) {
+                    margin-left: 0;
+                }
+            }
+        }
+
+        &_7 {
+            margin-left: 7px;
+        }
+
+        &_small {
+            margin-left: 0.5em;
+        }
+
+        &_auto {
+            margin-left: auto;
+        }
+
+        &_base {
+            margin-left: 1em;
+        }
+
+        &_increased {
+            margin-left: 1.5em;
+        }
+    }
+
+    &-right {
+        &_zero {
+            &-xs {
+                @include breakpoint($xs) {
+                    margin-right: 0;
+                }
+            }
+        }
+
+        &_6 {
+            margin-right: 6px;
+        }
+
+        &_auto {
+            margin-right: auto;
+        }
+
+        &_small {
+            margin-right: 0.5em;
+
+            &-quarter {
+                margin-right: 0.75em;
+            }
+        }
+
+        &_increased {
+            margin-right: 1.5em;
+        }
+
+        &_base {
+            margin-right: 1em;
+
+            &-quarter {
+                margin-right: 1.25em;
+            }
+        }
+
+        &_large {
+            margin-right: 2em;
+        }
+    }
+}
