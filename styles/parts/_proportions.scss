@@ -1,0 +1,24 @@
+.width {
+    &_fill {
+        min-width: 100%;
+        &-xs {
+            @include breakpoint($xs) {
+                min-width: 100%;
+            }
+        }
+        &-xxs {
+            @include breakpoint($xxs) {
+                min-width: 100%;
+            }
+        }
+    }
+    &_fit {
+        width: fit-content;
+    }
+}
+
+.height {
+    &_fill {
+        height: 100%;
+    }
+}

@@ -1,0 +1,36 @@
+.color {
+    &_paleLinks a {
+        color: #333b4e;
+        opacity: 0.8;
+    }
+    &_blue {
+        color: #333b4e;
+    }
+    &_green {
+        color: $green;
+    }
+    &_red {
+        color: #ed3d4e;
+    }
+    &_white {
+        color: $white;
+        &-force {
+            color: $white $i;
+        }
+    }
+    &_black {
+        color: $darkGray;
+    }
+    &_darkBlue {
+        color: $darkBlue;
+    }
+    &_gray {
+        color: $gray;
+    }
+    &_pale {
+        color: rgba($darkBlue, 0.4);
+    }
+    &_yellow {
+        color: $yellow;
+    }
+}

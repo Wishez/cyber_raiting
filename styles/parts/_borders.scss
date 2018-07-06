@@ -1,0 +1,34 @@
+.border {
+    &_gray {
+        border-color: #e2e3e6;
+    }
+    &_horizontal {
+        border: solid #eee;
+        border-width: 1px 0;
+    }
+    &_fewRound {
+        border-radius: 10px;
+    }
+    &-top {
+        &_none {
+            border-top: 0 $i;
+        }
+        &_gray {
+            border-top: 1px solid #e8e8e8;
+        }
+    }
+    &-bottom {
+        &_gray {
+            border-bottom: 1px solid #e8e8e8;
+        }
+    }
+    &_bend {
+        border-radius: 30px $i;
+    }
+    &_round {
+        border-radius: 50%;
+    }
+    &_none {
+        border: none;
+    }
+}

@@ -227,3 +227,9 @@
         }
     }
 }
+
+.unstyledButton {
+    border: 0;
+    background: 0;
+    transition: 250ms $standart;
+}

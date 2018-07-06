@@ -1,0 +1,13 @@
+.background {
+    &-color {
+        &_white {
+            background-color: $white;
+        }
+        &_pale {
+            background-color: #f3f3f4;
+        }
+        &_gray {
+            background-color: #b3b3b3;
+        }
+    }
+}

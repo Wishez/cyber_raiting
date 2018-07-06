@@ -1,0 +1,19 @@
+.position {
+    &_relative {
+        position: relative;
+    }
+    &_absolute {
+        position: absolute;
+    }
+}
+
+.after {
+    &:after {
+        content: "";
+    }
+    &_absolute {
+        &:after {
+            position: absolute;
+        }
+    }
+}
