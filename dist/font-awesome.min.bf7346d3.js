@@ -103,7 +103,7 @@ parcelRequire = (function (modules, cache, entry, globalName) {
 
   // Override the current require with this new one
   return newRequire;
-})({17:[function(require,module,exports) {
+})({66:[function(require,module,exports) {
 var bundleURL = null;
 function getBundleURLCached() {
   if (!bundleURL) {
@@ -133,7 +133,7 @@ function getBaseURL(url) {
 
 exports.getBundleURL = getBundleURLCached;
 exports.getBaseURL = getBaseURL;
-},{}],15:[function(require,module,exports) {
+},{}],39:[function(require,module,exports) {
 var bundle = require('./bundle-url');
 
 function updateLink(link) {
@@ -164,12 +164,12 @@ function reloadCSS() {
 }
 
 module.exports = reloadCSS;
-},{"./bundle-url":17}],48:[function(require,module,exports) {
+},{"./bundle-url":66}],11:[function(require,module,exports) {
 
 var reloadCSS = require('_css_loader');
 module.hot.dispose(reloadCSS);
 module.hot.accept(reloadCSS);
-},{"./..\\fonts\\fontawesome-webfont.eot":50,"./..\\fonts\\fontawesome-webfont.woff2":49,"./..\\fonts\\fontawesome-webfont.woff":53,"./..\\fonts\\fontawesome-webfont.ttf":52,"./..\\fonts\\fontawesome-webfont.svg":51,"_css_loader":15}],7:[function(require,module,exports) {
+},{"./..\\fonts\\fontawesome-webfont.eot":34,"./..\\fonts\\fontawesome-webfont.woff2":35,"./..\\fonts\\fontawesome-webfont.woff":36,"./..\\fonts\\fontawesome-webfont.ttf":37,"./..\\fonts\\fontawesome-webfont.svg":38,"_css_loader":39}],35:[function(require,module,exports) {
 var global = arguments[3];
 var OVERLAY_ID = '__parcel__error__overlay__';
 
@@ -198,7 +198,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = '' || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + '52877' + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + '51919' + '/');
   ws.onmessage = function (event) {
     var data = JSON.parse(event.data);
 
@@ -339,7 +339,7 @@ function hmrAccept(bundle, id) {
     return hmrAccept(global.parcelRequire, id);
   });
 }
-},{}],44:[function(require,module,exports) {
+},{}],37:[function(require,module,exports) {
 var getBundleURL = require('./bundle-url').getBundleURL;
 
 function loadBundlesLazy(bundles) {
@@ -416,6 +416,6 @@ LazyPromise.prototype.catch = function (onError) {
   if (this.promise === null) this.promise = new Promise(this.executor);
   return this.promise.catch(onError);
 };
-},{"./bundle-url":17}],0:[function(require,module,exports) {
-var b=require(44);b.load([["fontawesome-webfont.3a6d7bef.eot",50],["fontawesome-webfont.896590c4.woff2",49],["fontawesome-webfont.62ca4cca.woff",53],["fontawesome-webfont.0c67259d.ttf",52],["fontawesome-webfont.e48aea9d.svg",51]]);
-},{}]},{},[7,0], null)
+},{"./bundle-url":66}],0:[function(require,module,exports) {
+var b=require(37);b.load([["fontawesome-webfont.3a6d7bef.eot",34],["fontawesome-webfont.896590c4.woff2",35],["fontawesome-webfont.62ca4cca.woff",36],["fontawesome-webfont.0c67259d.ttf",37],["fontawesome-webfont.e48aea9d.svg",38]]);
+},{}]},{},[35,0], null)

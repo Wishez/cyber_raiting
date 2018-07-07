@@ -9,3 +9,30 @@
 'userData',
 'userPopup',
 'userAvatar';
+
+.out   {
+    max-width: calc(1024px + 3rem);
+    padding-right: 1.5rem;
+    padding-left: 1.5rem;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+#test {
+    max-width: 60ch;
+}
+
+.testBlock {
+    &__title {
+        font-size: 2rem;
+    }
+
+    &__success {
+        color: $green;
+    }
+
+    &__failure {
+        color: $red;
+    }
+
+}

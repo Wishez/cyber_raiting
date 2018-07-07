@@ -683,3 +683,22 @@
     stroke-dashoffset: 135.717; }
   .raitingBorder_main {
     stroke-dashoffset: 340; }
+
+.out {
+  max-width: calc(1024px + 3rem);
+  padding-right: 1.5rem;
+  padding-left: 1.5rem;
+  margin-left: auto;
+  margin-right: auto; }
+
+#test {
+  max-width: 60ch; }
+
+.testBlock__title {
+  font-size: 2rem; }
+
+.testBlock__success {
+  color: #2dc86f; }
+
+.testBlock__failure {
+  color: #ed3d4e; }
