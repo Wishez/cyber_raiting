@@ -4,6 +4,8 @@ import {
     thumbsHandler
 } from '../src/thumbsHandler'
 
+console.log(thumbsHandler)
+
 const $test = $('#test');
 
 function test(describe, fn) {
@@ -60,10 +62,9 @@ test("Test to change thumb state.", function () {
 });
 
 test("Test to get rating map.", function () {
-    const commentId = 677642;
     const ratingMap = thumbsHandler.getRatingMap();
-
-    expect(ratingMap).toBeA("object");
+    
+    expect(typeof ratingMap).toEqual("object");
 });
 
 test("Test to create comment in the rating map if needed and get it.", function () {
@@ -139,7 +140,7 @@ test("Test to show comment's like rating.", function () {
 
     const currentDosplayedRating = $rating.html();
 
-    expect(currentDosplayedRating).toEqual(1);
+    expect(+currentDosplayedRating).toEqual(1);
 
     $rating.remove();
 });

@@ -5,7 +5,6 @@ import {
 import UserRaiting from './UserRaiting'
 import viewRaitingHandler from './viewRaitingHandler'
 
-
 const SELECTORS = {
     name: ".rankName_",
     gradient: ".raitingGradientColor_",
@@ -224,13 +223,14 @@ function _allowEvaluationBy(action) {
 
 function initUsersRaiting() {
     $(function () {
+        console.log(SELECTORS.users)
         $(SELECTORS.users).each((index, user) => {
             const $user = $(user);
-            const delay = index * 142;
-
-            timeout(() => {
-                initSignleUserRaiting($user);
-            }, delay)
+            if ($user.data('visible')) {
+                const delay = index * 142;
+    
+                timeout(() => initSignleUserRaiting($user), delay)
+            }
         });
     });
 }
@@ -276,22 +276,18 @@ function _initViewOf(userId, isSetRankName) {
 }
 
 function _initBorderAndNameColorOf(userRaitingHandler) {
-    const {
-        $name,
-        $gradient
-    } = userRaitingHandler.targets;
-    const {
-        rank
-    } = userRaitingHandler;
-    const {
-        color
-    } = rank;
-
-    viewRaitingHandler.setColorTo({
-        $name,
-        $gradient,
-        color
-    });
+    const { $name, $gradient } = userRaitingHandler.targets;
+    const { rank } = userRaitingHandler;
+    if (rank) {
+        console.log(rank)
+        const { color } = rank;
+    
+        viewRaitingHandler.setColorTo({
+            $name,
+            $gradient,
+            color
+        });
+    }
 }
 
 function _initFillingBorderOf(userRaitingHandler) {
@@ -309,21 +305,17 @@ function _initFillingBorderOf(userRaitingHandler) {
 }
 
 function _initRankNameOf(userRaitingHandler) {
-    const {
-        $name
-    } = userRaitingHandler.targets;
-    const {
-        rank,
-        selfUserRank
-    } = userRaitingHandler;
-    const {
-        name
-    } = rank;
-
-    viewRaitingHandler.setRankNameTo({
-        $name,
-        name: selfUserRank || name
-    });
+    const { $name } = userRaitingHandler.targets;
+    const { rank, selfUserRank } = userRaitingHandler;
+    
+    if (rank) {
+        const { name  } = rank;
+    
+        viewRaitingHandler.setRankNameTo({
+            $name,
+            name: selfUserRank || name
+        });
+    }
 }
 
 function _initUserRaiting(userRaitingHandler) {

@@ -10,6 +10,224 @@
 </head>
 
 <body>
+	<div id="newCommentTemplate" hidden aria-hidden="true">
+		<div class="padding-left_base margin-top_base comment parent parent_row parent_wrap width_fill">
+			<div class="hidden-xs commentUserInfo padding_zero margin_centered">
+			<div id="postAvatar"
+				class="parent parent_column userAvatar userAvatar_small userAvatar_42 padding_zero after position_relative after_absolute"
+				data-visible="false"
+				data-user-info='{
+					"avatar": "[[currentUserAvatar]]",
+					"rating": "[[rating]]",
+					"userId":  "[[userId]]",
+					"registrationDate": "[[registrationDate]]",
+					"level": "[[level]]",
+					"username": "[[username]]",
+					"selfUserRank": "[[ $currentUserRandomRaiting ]]",
+					"totalEvaluatedScore": 0
+				}'
+			>
+				<!-- <img style="border-radius: 50%" src="$currentUserAvatar"> -->
+
+				<h3 class="font-weight_semi font-size_12 userAvatar__title rankName_42">
+
+				</h3>
+
+				<ul class="postUserInfo list-unstyled parent parent_column margin-bottom_zero font-size_10">
+				<li class="color_pale forumUserInfoItem parent parent_row parent_v-centered" data-toggle="tooltip" data-placement="top" aria-label="Number of posts" title="Number of posts">
+					<span class="forumUserInfoItem__label">
+					42
+					</span>
+
+					<span aria-hidden="true" class="fa fa-comment font-size_14 order_first forumUserInfoItem__icon"></span>
+				</li>
+
+				<li class="color_pale forumUserInfoItem parent parent_row parent_v-centered"
+				data-toggle="tooltip"
+				data-placement="top"
+				aria-label="<?= Yii::t('podium/view', 'На форуме') ?>"
+				title="<?= Yii::t('podium/view', 'На форуме') ?>">
+				<time datetime="<?= date('d.m.Y H:i', $userRegistrationDate) ?>"
+					class="forumUserInfoItem__label margin-right_quarter cropped_line ">
+					с 02.02.2018
+				</time>
+
+				<svg role="img" aria-hidden="true" viewBox="0 0 792 792" class="color_pale font-size_14 order_first forumUserInfoItem__icon forumUserInfoItem__icon_time">
+					<use xlink:href="#timeIcon" />
+				</svg>
+				</li>
+			</ul>
+
+			<svg role="img" aria-hidden="true"
+				class="userAvatar__border position_absolute"
+				x="0px" y="0px"
+				viewBox="0 0 100 100"
+				enable-background="new 0 0 100 100"
+				xml:space="preserve"
+			>
+				<linearGradient id="borderGradient_42" x1="0%" y1="0%" x2="100%" y2="100%">
+				<stop class="raitingGradientColor_42"  offset="100%" stop-color="#C2C8CE"/>
+				<stop offset="100%" stop-color="#C2C8CE"/>
+				</linearGradient>
+
+				<circle cx="50" cy="50" r="40" fill="none" stroke-width="3" stroke="#E9E9E9" />
+
+				<circle class="raitingBorder raitingBorder_black"/>
+
+				<circle class="raitingBorder raitingBorder_42 raitingBorder_main" stroke="url(#borderGradient_42)"/>
+			</svg>
+			</div>
+		</div>
+
+		<div class="commentUserContent commentUserContent_answer  grow margin-left_auto position_relative">
+			<div class="parent parent_row full_width parent_wrap parent_v-centered">
+			<h4 class="font-weight_bold grow">
+				<button class="userAvatar_42 unstyledButton userNameButton padding_zero"
+				data-user-info='{
+				"avatar": "",
+				"rating": 2500,
+				"userId":  "42",
+				"registrationDate": "02.02.2018",
+				"level": 85 ,
+				"username": "shiningfinger,
+				"selfUserRank": ""
+				}'>
+					shiningfinger
+				</button>
+			</h4>
+
+			<ul class="display_xs margin_left_auto padding_zero margin-bottom_zero list-unstyled parent parent_centered parent_row  font-size_12">
+				<li class="serPostAction userPostAction_like color_green  parent parent_row parent_v-end">
+					<button
+					class="likeButton_10 padding_zero userPostAction__button userPostAction__button_like unstyledButton margin-right_small-quarter podium-thumb-up"
+					aria-label="Thumb up"
+					data-post-id="10"
+					data-toggle="tooltip"
+					data-user-id="42"
+					data-placement="top"
+					title="Thumb up"
+					data-action="like"
+					data-is-choosen="false"
+
+					onclick="setRate({
+					displayRatingSelector: '.like-rating_10',
+					id: '10',
+					sign: 'plus'
+					});"
+					>
+					<span class="fa fa-thumbs-o-up" aria-hidden="true"></span>
+				</button>
+
+				<span class="like-rating_10 userPostAction__quantity font-size_14">
+					0
+				</span>
+				</li>
+
+				<li class="userPostAction color_red parent parent_row parent_v-end margin-left_base">
+					<span  class="dislike-rating_10 userPostAction__quantity margin-right_small-quarter font-size_14">
+					0
+					</span>
+
+					<button
+					class="likeButton_10 userPostAction__button  userPostAction__button_dislike unstyledButton  podium-thumb-down"
+					data-post-id="10"
+					data-toggle="tooltip"
+					data-placement="top"
+					data-user-id="42"
+					aria-label="<?= Yii::t('podium/view', 'Thumb down') ?>"
+					title="<?= Yii::t('podium/view', 'Thumb down') ?>"
+					data-action="dislike"
+					data-is-choosen="false"
+					onclick="setRate({
+						displayRatingSelector: '.dislike-rating_10',
+						id: '10',
+						sign: 'minus'
+					});"
+					>
+					<span class="fa fa-thumbs-o-down font-size_18" aria-hidden="true"></span>
+				</button>
+				</li>
+			</ul>
+			</div>
+
+			<div class="width_fill">
+			{{ newCommentContent }}
+			</div>
+
+			<ul class="userPostActions padding_zero margin-bottom_zero list-unstyled parent parent_v-end parent_row  font-size_12 position_absolute width_fill">
+				<li class="hidden-xs userPostAction userPostAction_like color_green  parent parent_row parent_v-end">
+				<button
+				class="likeButton_10 padding_zero userPostAction__button userPostAction__button_like unstyledButton margin-right_small-quarter podium-thumb-up"
+				aria-label="<?= Yii::t('news', 'Thumb up') ?>"
+				data-post-id="10"
+				data-toggle="tooltip"
+				data-user-id="42"
+				data-placement="top"
+				title="<?= Yii::t('news', 'Thumb up') ?>"
+				data-action="like"
+				data-is-choosen="false"
+
+				onclick="setRate({
+					displayRatingSelector: '.like-rating_10',
+					id: '10',
+					sign: 'plus'
+				});"
+				>
+				<span class="fa fa-thumbs-o-up" aria-hidden="true"></span>
+				</button>
+
+				<span class="like-rating_10 userPostAction__quantity font-size_14">
+				0
+				</span>
+			</li>
+
+			<li class="hidden-xs userPostAction color_red parent parent_row parent_v-end margin-left_base">
+				<span  class="dislike-rating_10 userPostAction__quantity margin-right_small-quarter font-size_14">
+					0
+				</span>
+
+				<button
+				class="likeButton_10 userPostAction__button  userPostAction__button_dislike unstyledButton  podium-thumb-down"
+				data-post-id="10"
+				data-toggle="tooltip"
+				data-placement="top"
+				data-user-id="42"
+				aria-label="<?= Yii::t('podium/view', 'Thumb down') ?>"
+				title="<?= Yii::t('podium/view', 'Thumb down') ?>"
+				data-action="dislike"
+				data-is-choosen="false"
+				onclick="setRate({
+					displayRatingSelector: '.dislike-rating_10',
+					id: '10',
+					sign: 'minus'
+				});"
+				>
+				<span class="fa fa-thumbs-o-down font-size_18" aria-hidden="true"></span>
+				</button>
+			</li>
+
+			<li class="font-size_14 commentTimestamp">
+				<time datetime="{{ newCommentDate }}">{{ newCommentDate }}</time>
+			</li>
+
+
+			<li class="userPostAction userPostAction_reply pading_zero color_red parent parent_row margin-left_auto font-size_18">
+				<button class="commentReplyButton unstyledButton color_green podium-quote parent parent_v-end"
+				data-toggle="tooltip"
+				data-placement="top"
+				aria-label="Reply with quote"
+				title="Reply with quote"
+				data-input-id="commentInput_10"
+				data-username="<?= $currentUsername ?>"
+				>
+				<span class="fa fa-reply font-size_14" aria-hidden="true"></span>
+			</button>
+			</li>
+		</ul>
+		</div>
+		</div>
+	</div>
+
 	<div class="out">
 		<article id="test">
 			<h1>Блок с тестами</h1>
@@ -20,7 +238,7 @@
 	    "rating": 0,
 	    "userId":  "userPopup",
 	    "selfUserRank": ""
-	  }' role="presentation" class="popupBackground">
+	  }' role="presentation" class="popupBackground" hidden>
 		<div id="userDataModalDescription" hidden>Окно с данными пользователя</div>
 	
 		<section role="dialog" aria-labelledby="userDataModalDescription" aria-modal="true" class="litter parent parent_wrap parent_row background-color_white border_bend margin_centered font-size_14 margin-top_large margin-bottom_large shadow_bigSpread">

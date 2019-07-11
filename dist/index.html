@@ -5,11 +5,160 @@
 	<meta name="viewport" content="width=device-width,initial-scale=1">
 
 	<title>Raiting API для портала 24cyber | Филипп Журавлёв</title>
-	<link rel="stylesheet" href="/bootstrap.min.3372f44a.css">
-	<link rel="stylesheet" href="/font-awesome.min.bf7346d3.css">
-<script src="/bootstrap.min.3372f44a.js"></script><script src="/font-awesome.min.bf7346d3.js"></script><link rel="stylesheet" href="/app.1bbb6c17.css"></head>
+	<link rel="stylesheet" href="/bootstrap.min.05ae936a.css">
+	<link rel="stylesheet" href="/font-awesome.min.d95698b1.css">
+<script src="/bootstrap.min.05ae936a.js"></script><script src="/font-awesome.min.d95698b1.js"></script><link rel="stylesheet" href="/app.a6a4d504.css"></head>
 
 <body>
+	<div id="newCommentTemplate" hidden="" aria-hidden="true">
+		<div class="padding-left_base margin-top_base comment parent parent_row parent_wrap width_fill">
+			<div class="hidden-xs commentUserInfo padding_zero margin_centered">
+			<div id="postAvatar" class="parent parent_column userAvatar userAvatar_small userAvatar_42 padding_zero after position_relative after_absolute" data-visible="false" data-user-info="{
+					&quot;avatar&quot;: &quot;[[currentUserAvatar]]&quot;,
+					&quot;rating&quot;: &quot;[[rating]]&quot;,
+					&quot;userId&quot;:  &quot;[[userId]]&quot;,
+					&quot;registrationDate&quot;: &quot;[[registrationDate]]&quot;,
+					&quot;level&quot;: &quot;[[level]]&quot;,
+					&quot;username&quot;: &quot;[[username]]&quot;,
+					&quot;selfUserRank&quot;: &quot;[[ $currentUserRandomRaiting ]]&quot;,
+					&quot;totalEvaluatedScore&quot;: 0
+				}">
+				<!-- <img style="border-radius: 50%" src="$currentUserAvatar"> -->
+
+				<h3 class="font-weight_semi font-size_12 userAvatar__title rankName_42">
+
+				</h3>
+
+				<ul class="postUserInfo list-unstyled parent parent_column margin-bottom_zero font-size_10">
+				<li class="color_pale forumUserInfoItem parent parent_row parent_v-centered" data-toggle="tooltip" data-placement="top" aria-label="Number of posts" title="Number of posts">
+					<span class="forumUserInfoItem__label">
+					42
+					</span>
+
+					<span aria-hidden="true" class="fa fa-comment font-size_14 order_first forumUserInfoItem__icon"></span>
+				</li>
+
+				<li class="color_pale forumUserInfoItem parent parent_row parent_v-centered" data-toggle="tooltip" data-placement="top" aria-label="<?= Yii::t('podium/view', 'На форуме') ?>" title="<?= Yii::t('podium/view', 'На форуме') ?>">
+				<time datetime="<?= date('d.m.Y H:i', $userRegistrationDate) ?>" class="forumUserInfoItem__label margin-right_quarter cropped_line ">
+					с 02.02.2018
+				</time>
+
+				<svg role="img" aria-hidden="true" viewbox="0 0 792 792" class="color_pale font-size_14 order_first forumUserInfoItem__icon forumUserInfoItem__icon_time">
+					<use xlink:href="#timeIcon"></use>
+				</svg>
+				</li>
+			</ul>
+
+			<svg role="img" aria-hidden="true" class="userAvatar__border position_absolute" x="0px" y="0px" viewbox="0 0 100 100" enable-background="new 0 0 100 100" xml:space="preserve">
+				<linearGradient id="borderGradient_42" x1="0%" y1="0%" x2="100%" y2="100%">
+				<stop class="raitingGradientColor_42" offset="100%" stop-color="#C2C8CE"></stop>
+				<stop offset="100%" stop-color="#C2C8CE"></stop>
+				</linearGradient>
+
+				<circle cx="50" cy="50" r="40" fill="none" stroke-width="3" stroke="#E9E9E9"></circle>
+
+				<circle class="raitingBorder raitingBorder_black"></circle>
+
+				<circle class="raitingBorder raitingBorder_42 raitingBorder_main" stroke="url(#borderGradient_42)"></circle>
+			</svg>
+			</div>
+		</div>
+
+		<div class="commentUserContent commentUserContent_answer  grow margin-left_auto position_relative">
+			<div class="parent parent_row full_width parent_wrap parent_v-centered">
+			<h4 class="font-weight_bold grow">
+				<button class="userAvatar_42 unstyledButton userNameButton padding_zero" data-user-info="{
+				&quot;avatar&quot;: &quot;&quot;,
+				&quot;rating&quot;: 2500,
+				&quot;userId&quot;:  &quot;42&quot;,
+				&quot;registrationDate&quot;: &quot;02.02.2018&quot;,
+				&quot;level&quot;: 85 ,
+				&quot;username&quot;: &quot;shiningfinger,
+				&quot;selfUserRank&quot;: &quot;&quot;
+				}">
+					shiningfinger
+				</button>
+			</h4>
+
+			<ul class="display_xs margin_left_auto padding_zero margin-bottom_zero list-unstyled parent parent_centered parent_row  font-size_12">
+				<li class="serPostAction userPostAction_like color_green  parent parent_row parent_v-end">
+					<button class="likeButton_10 padding_zero userPostAction__button userPostAction__button_like unstyledButton margin-right_small-quarter podium-thumb-up" aria-label="Thumb up" data-post-id="10" data-toggle="tooltip" data-user-id="42" data-placement="top" title="Thumb up" data-action="like" data-is-choosen="false" onclick="setRate({
+					displayRatingSelector: '.like-rating_10',
+					id: '10',
+					sign: 'plus'
+					});">
+					<span class="fa fa-thumbs-o-up" aria-hidden="true"></span>
+				</button>
+
+				<span class="like-rating_10 userPostAction__quantity font-size_14">
+					0
+				</span>
+				</li>
+
+				<li class="userPostAction color_red parent parent_row parent_v-end margin-left_base">
+					<span class="dislike-rating_10 userPostAction__quantity margin-right_small-quarter font-size_14">
+					0
+					</span>
+
+					<button class="likeButton_10 userPostAction__button  userPostAction__button_dislike unstyledButton  podium-thumb-down" data-post-id="10" data-toggle="tooltip" data-placement="top" data-user-id="42" aria-label="<?= Yii::t('podium/view', 'Thumb down') ?>" title="<?= Yii::t('podium/view', 'Thumb down') ?>" data-action="dislike" data-is-choosen="false" onclick="setRate({
+						displayRatingSelector: '.dislike-rating_10',
+						id: '10',
+						sign: 'minus'
+					});">
+					<span class="fa fa-thumbs-o-down font-size_18" aria-hidden="true"></span>
+				</button>
+				</li>
+			</ul>
+			</div>
+
+			<div class="width_fill">
+			{{ newCommentContent }}
+			</div>
+
+			<ul class="userPostActions padding_zero margin-bottom_zero list-unstyled parent parent_v-end parent_row  font-size_12 position_absolute width_fill">
+				<li class="hidden-xs userPostAction userPostAction_like color_green  parent parent_row parent_v-end">
+				<button class="likeButton_10 padding_zero userPostAction__button userPostAction__button_like unstyledButton margin-right_small-quarter podium-thumb-up" aria-label="<?= Yii::t('news', 'Thumb up') ?>" data-post-id="10" data-toggle="tooltip" data-user-id="42" data-placement="top" title="<?= Yii::t('news', 'Thumb up') ?>" data-action="like" data-is-choosen="false" onclick="setRate({
+					displayRatingSelector: '.like-rating_10',
+					id: '10',
+					sign: 'plus'
+				});">
+				<span class="fa fa-thumbs-o-up" aria-hidden="true"></span>
+				</button>
+
+				<span class="like-rating_10 userPostAction__quantity font-size_14">
+				0
+				</span>
+			</li>
+
+			<li class="hidden-xs userPostAction color_red parent parent_row parent_v-end margin-left_base">
+				<span class="dislike-rating_10 userPostAction__quantity margin-right_small-quarter font-size_14">
+					0
+				</span>
+
+				<button class="likeButton_10 userPostAction__button  userPostAction__button_dislike unstyledButton  podium-thumb-down" data-post-id="10" data-toggle="tooltip" data-placement="top" data-user-id="42" aria-label="<?= Yii::t('podium/view', 'Thumb down') ?>" title="<?= Yii::t('podium/view', 'Thumb down') ?>" data-action="dislike" data-is-choosen="false" onclick="setRate({
+					displayRatingSelector: '.dislike-rating_10',
+					id: '10',
+					sign: 'minus'
+				});">
+				<span class="fa fa-thumbs-o-down font-size_18" aria-hidden="true"></span>
+				</button>
+			</li>
+
+			<li class="font-size_14 commentTimestamp">
+				<time datetime="{{ newCommentDate }}">{{ newCommentDate }}</time>
+			</li>
+
+
+			<li class="userPostAction userPostAction_reply pading_zero color_red parent parent_row margin-left_auto font-size_18">
+				<button class="commentReplyButton unstyledButton color_green podium-quote parent parent_v-end" data-toggle="tooltip" data-placement="top" aria-label="Reply with quote" title="Reply with quote" data-input-id="commentInput_10" data-username="<?= $currentUsername ?>">
+				<span class="fa fa-reply font-size_14" aria-hidden="true"></span>
+			</button>
+			</li>
+		</ul>
+		</div>
+		</div>
+	</div>
+
 	<div class="out">
 		<article id="test">
 			<h1>Блок с тестами</h1>
@@ -20,7 +169,7 @@
 	    &quot;rating&quot;: 0,
 	    &quot;userId&quot;:  &quot;userPopup&quot;,
 	    &quot;selfUserRank&quot;: &quot;&quot;
-	  }" role="presentation" class="popupBackground">
+	  }" role="presentation" class="popupBackground" hidden="">
 		<div id="userDataModalDescription" hidden="">Окно с данными пользователя</div>
 	
 		<section role="dialog" aria-labelledby="userDataModalDescription" aria-modal="true" class="litter parent parent_wrap parent_row background-color_white border_bend margin_centered font-size_14 margin-top_large margin-bottom_large shadow_bigSpread">
@@ -30,8 +179,8 @@
 	
 			<div class="userPopupAvatar parent parent_centered parent_column margin_centered-xs">
 				<picture class="userAvatar userAvatar_userPopup userAvatar_popupBorder userAvatar_big after after_absolute order_first position_relative border_round background-color_white order_first">
-					<source id="userPopupAvatar" srcset="/man.5cbde5d0.jpg" media="screen">
-					<img class="img-responsive img-circle img-responsive width_fill height_fill" src="/man.5cbde5d0.jpg">
+					<source id="userPopupAvatar" srcset="/man.814bb71d.jpg" media="screen">
+					<img class="img-responsive img-circle img-responsive width_fill height_fill" src="/man.814bb71d.jpg">
 	
 					<svg role="img" aria-hidden="true" class="userAvatar__border position_absolute" x="0px" y="0px" viewbox="0 0 100 100" enable-background="new 0 0 100 100" xml:space="preserve">
 						<linearGradient id="borderGradient_userPopup" x1="0%" y1="0%" x2="100%" y2="100%">
@@ -115,6 +264,6 @@
 	    }">
 	</div>
 
-	<script async="" src="/app.1bbb6c17.js"></script>
+	<script async="" src="/app.a6a4d504.js"></script>
 </body>
 </html>
